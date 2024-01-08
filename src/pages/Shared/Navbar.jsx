@@ -1,10 +1,12 @@
-
+import { Link } from "react-router-dom"
 const Navbar = () => {
     const navMenus = <>
-
+    <li><Link to={'/'}>Home</Link></li>
+    <li><Link to={'/menu'}>Our Menu</Link></li>
+    <li><Link>Our Menu</Link></li>
     </>
   return (
-    <div>
+    <nav>
       <div className="navbar fixed z-10  bg-slate-700 bg-opacity-25 text-white max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -26,7 +28,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-slate-600 font-bold rounded-box w-52 "
             >
                 {navMenus}
               
@@ -43,7 +45,7 @@ const Navbar = () => {
           <a className="btn">Button</a>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
