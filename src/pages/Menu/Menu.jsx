@@ -9,7 +9,7 @@ const Menu = () => {
             <Helmet>
                 <title> Menu</title>
             </Helmet>
-            <Cover img={menuBanner} coverTitle={'Our Menus'}/>
+            <Cover img={menuBanner} coverTitle={'Our Menus'} subTitle={'Would you like to try a dish?'}/>
             <h2>Menu page</h2>
             
         </main>
