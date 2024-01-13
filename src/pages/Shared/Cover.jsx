@@ -1,19 +1,18 @@
 import React from "react";
 import { Parallax } from "react-parallax";
-import SectionTitle from "../../components/sectionTitle/SectionTitle";
 
 const Cover = ({ img, coverTitle, subTitle }) => {
   return (
-    <section>
+    <section className="mb-4">
       <Parallax
-      blur={{min: -50, max: 50}}
+      blur={{min: -20, max: 20}}
       bgImage={img}
       bgImageAlt="The menus"
       strength={100}
       >
         <div
-          className="hero h-[400px]">
-          <div className="hero-overlay bg-opacity-60"></div>
+          className="hero md:h-[400px]">
+          <div className="hero-overlay bg-opacity-40"></div>
           <div className="hero-content text-center text-neutral-content">
             <div className="max-w-md">
               <h1 className="mb-5 text-5xl font-bold">{coverTitle}</h1>
@@ -22,8 +21,6 @@ const Cover = ({ img, coverTitle, subTitle }) => {
           </div>
         </div>
       </Parallax>
-      <SectionTitle heading={'Todays Offer'}
-      subHeading={" Don't Miss "}/>
     </section>
   );
 };
