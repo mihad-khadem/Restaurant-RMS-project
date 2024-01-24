@@ -1,1 +1,7 @@
-Restaurant Management System project
+# Restaurant Management System
+
+### Technologys Used : 
+- React
+- Node
+- Express
+- DataBase (MongoDB)
