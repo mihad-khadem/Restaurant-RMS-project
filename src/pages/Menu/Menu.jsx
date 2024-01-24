@@ -23,54 +23,60 @@ const Menu = () => {
     const soup = menu.filter(item => item.category === 'soup');
     const offered = menu.filter(item => item.category === 'offered');
     
+    
 
     return (
-        <main>
-            <Helmet>
-                <title> Menu</title>
-            </Helmet>
-            <Cover img={menuBanner} coverTitle={'Our Menus'} subTitle={'Would you like to try a dish?'}/>
-            {/* Menu Sections */}
-            <section>
-                {/* Offered Item */}
-               <SectionTitle heading={`Todays Offer`} subHeading={`Don't Miss`}/>
-               <div>
-                    <MenuCategory items={offered}></MenuCategory>
-                    <CustomBtn btnTitle={'order now'}/>
-               </div>
-               {/* desserts Item */}
-               <Cover img={dessertBanner} coverTitle={'Desserts'} subTitle={'Would you like to try a dish?'}/>
-               <div>
-                    <MenuCategory items={desserts}/>
-                    <CustomBtn btnTitle={'order now'}/>
-               </div>
-               {/* salad Item */}
-               <Cover img={saladBanner} coverTitle={'salads'} subTitle={'Would you like to try a dish?'}/>
-               <div>
-                    <MenuCategory items={salad}/>
-                    <CustomBtn btnTitle={'order now'}/>
-               </div>
-               {/* pizza Item */}
-               <Cover img={pizzaBanner} coverTitle={'Pizzas'} subTitle={'Would you like to try a dish?'}/>
-               <div>
-                    <MenuCategory items={pizza}/>
-                    <CustomBtn btnTitle={'order now'}/>
-               </div>
-               {/* soup Item */}
-               <Cover img={soupBanner} coverTitle={'Soups'} subTitle={'Would you like to try a dish?'}/>
-               <div>
-                    <MenuCategory items={soup}/>
-                    <CustomBtn btnTitle={'order now'}/>
-               </div>
-               {/* drinks Item */}
-               <Cover img={drinksBanner} coverTitle={'Drinks'} subTitle={'Would you like to try a dish?'}/>
-               <div>
-                    <MenuCategory items={drinks}/>
-                    <CustomBtn btnTitle={'order now'}/>
-               </div>
-            </section>
-            
-        </main>
+     <main>
+     <Helmet>
+         <title> Menu</title>
+     </Helmet>
+     <Cover img={menuBanner} coverTitle={'Our Menus'} subTitle={'Would you like to try a dish?'}/>
+     
+     {/* Menu Sections */}
+     <section>
+         {/* Offered Item */}
+         <SectionTitle heading={`Todays Offer`} subHeading={`Don't Miss`}/>
+         <div>
+             <MenuCategory key={'offered'} items={offered}></MenuCategory>
+             <CustomBtn btnTitle={'order now'}/>
+         </div>
+
+         {/* desserts Item */}
+         <Cover img={dessertBanner} coverTitle={'Desserts'} subTitle={'Would you like to try a dish?'}/>
+         <div>
+             <MenuCategory key={'desserts'} items={desserts}/>
+             <CustomBtn btnTitle={'order now'}/>
+         </div>
+
+         {/* salad Item */}
+         <Cover img={saladBanner} coverTitle={'salads'} subTitle={'Would you like to try a dish?'}/>
+         <div>
+             <MenuCategory key={'salad'} items={salad}/>
+             <CustomBtn btnTitle={'order now'}/>
+         </div>
+
+         {/* pizza Item */}
+         <Cover img={pizzaBanner} coverTitle={'Pizzas'} subTitle={'Would you like to try a dish?'}/>
+         <div>
+             <MenuCategory key={'pizza'} items={pizza}/>
+             <CustomBtn btnTitle={'order now'}/>
+         </div>
+
+         {/* soup Item */}
+         <Cover img={soupBanner} coverTitle={'Soups'} subTitle={'Would you like to try a dish?'}/>
+         <div>
+             <MenuCategory key={'soup'} items={soup}/>
+             <CustomBtn btnTitle={'order now'}/>
+         </div>
+
+         {/* drinks Item */}
+         <Cover img={drinksBanner} coverTitle={'Drinks'} subTitle={'Would you like to try a dish?'}/>
+         <div>
+             <MenuCategory key={'drinks'} items={drinks}/>
+             <CustomBtn btnTitle={'order now'}/>
+         </div>
+     </section>
+ </main>
     );
 };
 

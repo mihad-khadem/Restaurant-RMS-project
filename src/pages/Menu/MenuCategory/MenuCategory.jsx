@@ -1,6 +1,6 @@
 import MenuItems from '../../Shared/MenuItems';
 
-const MenuCategory = ({items}) => {
+const MenuCategory = ({ items }) => {
     return (
         <section>
             <div className='grid md:grid-cols-2 gap-4'>
