@@ -9,7 +9,7 @@ export const useMenu = () => {
 
     // Using effect to fetch menu data
     useEffect(() => {
-        fetch('menu.json')
+        fetch('http://localhost:5000/menu')
         .then(res => res.json())
         .then(data => {
             setMenu(data)

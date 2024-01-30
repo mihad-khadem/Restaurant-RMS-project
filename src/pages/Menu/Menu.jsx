@@ -10,7 +10,7 @@ import Cover from '../Shared/Cover';
 import { useMenu } from '../../hooks/useMenu';
 import SectionTitle from '../../components/sectionTitle/SectionTitle';
 import MenuCategory from './MenuCategory/MenuCategory';
-import CustomBtn from '../../components/button/CustomBtn';
+
 
 
 const Menu = () => {
@@ -37,43 +37,41 @@ const Menu = () => {
          {/* Offered Item */}
          <SectionTitle heading={`Todays Offer`} subHeading={`Don't Miss`}/>
          <div>
-             <MenuCategory key={'offered'} items={offered}></MenuCategory>
-             <CustomBtn btnTitle={'order now'}/>
+             <MenuCategory key={'offered'} title='offered' items={offered}></MenuCategory>
          </div>
 
          {/* desserts Item */}
          <Cover img={dessertBanner} coverTitle={'Desserts'} subTitle={'Would you like to try a dish?'}/>
          <div>
-             <MenuCategory key={'desserts'} items={desserts}/>
-             <CustomBtn btnTitle={'order now'}/>
+             <MenuCategory key={'desserts'} title='desserts' items={desserts}/>
+             
          </div>
 
          {/* salad Item */}
          <Cover img={saladBanner} coverTitle={'salads'} subTitle={'Would you like to try a dish?'}/>
          <div>
-             <MenuCategory key={'salad'} items={salad}/>
-             <CustomBtn btnTitle={'order now'}/>
+             <MenuCategory key={'salad'} title='salad' items={salad}/>
+             
          </div>
 
          {/* pizza Item */}
          <Cover img={pizzaBanner} coverTitle={'Pizzas'} subTitle={'Would you like to try a dish?'}/>
          <div>
-             <MenuCategory key={'pizza'} items={pizza}/>
-             <CustomBtn btnTitle={'order now'}/>
+             <MenuCategory key={'pizza'} title='pizza' items={pizza}/>
+             
          </div>
 
          {/* soup Item */}
          <Cover img={soupBanner} coverTitle={'Soups'} subTitle={'Would you like to try a dish?'}/>
          <div>
-             <MenuCategory key={'soup'} items={soup}/>
-             <CustomBtn btnTitle={'order now'}/>
+             <MenuCategory key={'soup'} title='soup' items={soup}/>
+             
          </div>
 
          {/* drinks Item */}
          <Cover img={drinksBanner} coverTitle={'Drinks'} subTitle={'Would you like to try a dish?'}/>
          <div>
-             <MenuCategory key={'drinks'} items={drinks}/>
-             <CustomBtn btnTitle={'order now'}/>
+             <MenuCategory key={'drinks'} title='drinks' items={drinks}/>
          </div>
      </section>
  </main>

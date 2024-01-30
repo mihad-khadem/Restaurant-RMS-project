@@ -1,7 +1,9 @@
 import React from 'react';
 
 const MenuItems = ({item}) => {
+
     const {name, image, price, recipe} = item;
+    
     return (
         <div className='flex space-x-4 space-y-3 items-center md:p-4 border rounded-md p-1 hover:shadow-md'>
            <div>

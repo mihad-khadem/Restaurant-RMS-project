@@ -1,9 +1,9 @@
 import React from "react";
 
-const Card = ({ _id ,title, img, recipe }) => {
+const Card = ({ _id, title, img, recipe, price }) => {
   return (
     <section>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-96 h-[600px] bg-base-100 shadow-xl">
         <figure>
           <img
             className="h-[300px]"
@@ -11,6 +11,9 @@ const Card = ({ _id ,title, img, recipe }) => {
             alt='Foods'
           />
         </figure>
+        {
+          price && <p className="absolute right-5 top-5 bg-[#BB8506] text-white p-1 rounded-md font-bold">{price} $</p>
+        }
         <div className="card-body">
           <h2 className="font-bold text-2xl text-center">{title}</h2>
           <p>{recipe}</p>
