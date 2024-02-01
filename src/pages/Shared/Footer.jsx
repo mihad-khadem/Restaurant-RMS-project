@@ -4,9 +4,9 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer className=" text-white ">
-        <div className="flex justify-center">
-          <div className="bg-[#111827] w-full p-10">
+      <footer className=" text-white">
+        <div className="flex justify-center mx-auto">
+          <div className="bg-[#111827] w-2/4 p-10">
             <nav>
               <header className="footer-title">Company</header>
               <a className="link link-hover mr-2">About us</a>
@@ -15,10 +15,10 @@ const Footer = () => {
               <a className="link link-hover mr-2">Press kit</a>
             </nav>
           </div>
-          <div className="bg-[#1F2937] w-full p-10">
+          <div className="bg-[#1F2937] p-10 w-2/4">
             <nav>
               <header className="footer-title">Social</header>
-              <div className="grid grid-flow-col gap-4">
+              <div className="grid md:grid-cols-3 gap-4">
                 <a>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

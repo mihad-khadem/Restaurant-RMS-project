@@ -3,7 +3,8 @@ const Navbar = () => {
     const navMenus = <>
     <li><Link to={'/'}>Home</Link></li>
     <li><Link to={'/menu'}>Our Menu</Link></li>
-    <li><Link to={'/order'}>Our Shop</Link></li>
+    <li><Link to={'/order/offered'}>Our Shop</Link></li>
+    <li><Link to={'/login'}>Login</Link></li>
     </>
   return (
     <nav>
