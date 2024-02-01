@@ -6,13 +6,13 @@ import Navbar from "../pages/Shared/Navbar";
 const MainLayout = () => {
   const location = useLocation()
   // console.log(location);
-  const isLogin = location.pathname.includes('login') || location.pathname.includes('register');
+  const noHeaderFooter = location.pathname.includes('login') || location.pathname.includes('signup');
   return (
     <div>
       <div className="max-w-screen-xl mx-auto">
-        {isLogin || <Navbar/>}
+        {noHeaderFooter || <Navbar/>}
         <Outlet />
-        {isLogin || <Footer/>}
+        {noHeaderFooter || <Footer/>}
         
       </div>
     </div>
