@@ -4,14 +4,17 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../contexts/AuthProvider";
 import Swal from "sweetalert2";
-
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "./SocialLogin";
 
 const SignUp = () => {
-      // Navigate User
-const navigate = useNavigate()
-const location = useLocation()
-const from = location.state?.from?.pathname || "/"
-    const {createUser, updateUserProfile } = useContext(AuthContext)
+  // axios Public Hook
+  const axiosPublic = useAxiosPublic();
+  // Navigate User
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   // Hook Form Component
   const {
     register,
@@ -20,26 +23,50 @@ const from = location.state?.from?.pathname || "/"
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    createUser(data.email, data.password)
-    .then(result => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
-        updateUserProfile(data.name, data.photo)
+    createUser(data.email, data.password).then((result) => {
+      // const loggedUser = result.user;
+      // console.log(loggedUser);
+      updateUserProfile(data.name, data.photo)
         .then(() => {
-            Swal.fire("User Created");
-            reset()
+          // user info
+          const userInfo = {
+            name: data.name,
+            email: data.email,
+          };
+          axiosPublic.post(`/api/v1/users`, userInfo).then((res) => {
+            if (res.data.insertedId) {
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'User Created',
+                showConfirmButton: false,
+                timer: 2000
+              });
+              reset();
+            }
+          });
         })
-        .catch(err => console.log(err))
-        navigate(from, {replace: true})
-    })
-    console.log(data);
+        .catch((err) => {
+          if (err) {
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: `${err.message}`,
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
+        });
+      navigate(from, { replace: true });
+    });
+    // console.log(data);
   };
 
   return (
     <section>
-        <Helmet>
-            <title>Sign Up</title>
-        </Helmet>
+      <Helmet>
+        <title>Sign Up</title>
+      </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex flex-col lg:flex-row">
           <div className="text-center lg:text-left">
@@ -63,7 +90,11 @@ const from = location.state?.from?.pathname || "/"
                   name="name"
                   className="input input-bordered"
                 />
-                {errors.name && <span className="pt-2 text-red-600">This field is required</span>}
+                {errors.name && (
+                  <span className="pt-2 text-red-600">
+                    This field is required
+                  </span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -76,7 +107,11 @@ const from = location.state?.from?.pathname || "/"
                   name="photo"
                   className="input input-bordered"
                 />
-                {errors.name && <span className="pt-2 text-red-600">This field is required</span>}
+                {errors.name && (
+                  <span className="pt-2 text-red-600">
+                    This field is required
+                  </span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -87,10 +122,13 @@ const from = location.state?.from?.pathname || "/"
                   placeholder="Email"
                   name="email"
                   {...register("email", { required: true })}
-                  
                   className="input input-bordered"
                 />
-                {errors.email && <span className="pt-2 text-red-600">This field is required</span>}
+                {errors.email && (
+                  <span className="pt-2 text-red-600">
+                    This field is required
+                  </span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -101,19 +139,32 @@ const from = location.state?.from?.pathname || "/"
                   placeholder="Password"
                   name="password"
                   className="input input-bordered"
-                  {...register("password", { required: true , minLength: 8 ,
-                pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/})}
+                  {...register("password", {
+                    required: true,
+                    minLength: 8,
+                    pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+                  })}
                 />
                 <label className="label">
-                {errors.password?.type === 'required' && <span className="pt-2 text-red-600">This field is required</span>}
-                {errors.password?.type === 'pattern' &&
-                <span className="pt-2 text-red-600">Password must contain one number, lower case, Upper Case character</span>}
-                {errors.password?.type === 'minLength' &&
-                <span className="pt-2 text-red-600">Password must be 8 character</span>}
+                  {errors.password?.type === "required" && (
+                    <span className="pt-2 text-red-600">
+                      This field is required
+                    </span>
+                  )}
+                  {errors.password?.type === "pattern" && (
+                    <span className="pt-2 text-red-600">
+                      Password must contain one number, lower case, Upper Case
+                      character
+                    </span>
+                  )}
+                  {errors.password?.type === "minLength" && (
+                    <span className="pt-2 text-red-600">
+                      Password must be 8 character
+                    </span>
+                  )}
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
-                  
                 </label>
               </div>
               {/* <div className="form-control">
@@ -130,13 +181,14 @@ const from = location.state?.from?.pathname || "/"
                   Validate
                 </button>
               </div> */}
-              <div className="form-control mt-2">
+              <div className="form-control">
                 <input
                   type="submit"
-                  value="Login"
-                  className="btn btn-primary uppercase font-bold"
+                  value="Sign Up"
+                  className="btn btn-neutral text-orange-400 uppercase font-bold"
                 />
               </div>
+              
               <div>
                 <p>
                   <small>
@@ -147,6 +199,11 @@ const from = location.state?.from?.pathname || "/"
                   </small>
                 </p>
               </div>
+              <div className="divider"></div>
+              <div>
+                <SocialLogin/>
+              </div>
+              
             </form>
           </div>
         </div>

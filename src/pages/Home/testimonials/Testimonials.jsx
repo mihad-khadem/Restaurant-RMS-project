@@ -22,7 +22,7 @@ const Testimonials = () => {
             <div>
                 <Swiper navigation={true} modules={[Navigation]} autoplay={true}>
                     {
-                        reviews.map(review => <SwiperSlide key={review.id}>
+                        reviews.map(review => <SwiperSlide key={review._id}>
                             <div className='mx-24 my-10 text-center'>
                                 <div>
                                     <Rating className='mx-auto my-5' style={{maxWidth: '250px'}} value={review.rating} readOnly={true}/>

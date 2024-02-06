@@ -1,67 +1,74 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { loadCaptchaEnginge, LoadCanvasTemplate,validateCaptcha } from 'react-simple-captcha';
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  validateCaptcha,
+} from "react-simple-captcha";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SocialLogin from "../signUp/SocialLogin";
 
 const Login = () => {
   // Captcha Ref
 
   // Navigate User
-const navigate = useNavigate()
-const location = useLocation()
-const from = location.state?.from?.pathname || "/"
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   // Auth Context
-  const {signIn} = useContext(AuthContext)
+  const { signIn } = useContext(AuthContext);
 
-  const [ disabled, setDisabled ] = useState(true);
+  const [disabled, setDisabled] = useState(true);
   // Load captcha engine
   useEffect(() => {
     loadCaptchaEnginge(6);
-  }, [])
-    const handleLogin = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        signIn(email, password)
-        .then(result => {
-          const user = result.user;
-          console.log(user);
-          if(user){
-            Swal.fire({
-              title: "Good job!",
-              text: "User Login Successful",
-              icon: "success"
-            });
-          }else{
-            Swal.fire({
-              icon: "error",
-              title: "Oops...",
-              text: "Something went wrong!",
-            });
-          }
-          navigate(from, {replace: true})
-        })
-
+  }, []);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        // console.log(user);
+        if (user) {
+          Swal.fire({
+            title: "Good job!",
+            text: "User Login Successful",
+            icon: "success",
+          });
         }
-        const handleValidateCaptcha = (e) => {
-          const user_captcha_value = e.target.value;
-          console.log("User Captcha Value:", user_captcha_value);
-        
-          try {
-            // Add console logs here for debugging
-            if (validateCaptcha(user_captcha_value)) {
-              setDisabled(false);
-            } else {
-              setDisabled(true);
-              alert('Wrong captcha');
-            }
-          } catch (error) {
-            console.error("Captcha Validation Error:", error);
-          }
-        };
-  return ( 
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        if (err) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+      });
+  };
+  const handleValidateCaptcha = (e) => {
+    const user_captcha_value = e.target.value;
+    console.log("User Captcha Value:", user_captcha_value);
+
+    try {
+      // Add console logs here for debugging
+      if (validateCaptcha(user_captcha_value)) {
+        setDisabled(false);
+      } else {
+        setDisabled(true);
+        //? alert("Wrong captcha");
+      }
+    } catch (error) {
+      console.error("Captcha Validation Error:", error);
+    }
+  };
+  return (
     <div>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex flex-col lg:flex-row">
@@ -106,25 +113,42 @@ const from = location.state?.from?.pathname || "/"
               </div>
               <div className="form-control">
                 <label className="label">
-                <LoadCanvasTemplate/>
+                  <LoadCanvasTemplate />
                 </label>
                 <input
-                onBlur={handleValidateCaptcha}
+                  onBlur={handleValidateCaptcha}
                   type="text"
-                  placeholder='Captcha Here..'
+                  placeholder="Captcha Here.."
                   name="captcha"
                   className="input input-bordered"
                   required
                 />
               </div>
               <div className="form-control mt-2">
-               <input disabled={disabled} type="submit" value="Login" className="btn btn-primary uppercase font-bold" />
+                {/* TODO: re enable */}
+                <input
+                  disabled={false}
+                  type="submit"
+                  value="Login"
+                  className="btn btn-primary uppercase font-bold"
+                />
               </div>
+
               <div>
-              <p><small>New Here? <Link className="hover:underline" to={'/signup'}>Create Account</Link> </small></p>
-            </div>
+                <p>
+                  <small>
+                    New Here?{" "}
+                    <Link className="hover:underline" to={"/signup"}>
+                      Create Account
+                    </Link>{" "}
+                  </small>
+                </p>
+              </div>
+              <div className="divider"></div>
+              <div>
+                <SocialLogin />
+              </div>
             </form>
-            
           </div>
         </div>
       </div>

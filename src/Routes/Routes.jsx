@@ -7,13 +7,15 @@ import Login from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
 import Secret from "../pages/Shared/Secret";
 import PrivateRoute from "./private/PrivateRoute";
+import DashBoard from "../Layouts/DashBoard";
+import Cart from "../pages/cart/Cart";
 
 export const Routes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
     errorElement: (
-      <div className="text-5xl font-bold flex justify-center mt-72"></div>
+      <div className="text-5xl font-bold flex justify-center mt-72">Error</div>
     ),
     children: [
       {
@@ -42,4 +44,14 @@ export const Routes = createBrowserRouter([
       }
     ],
   },
+  {
+    path: 'dashboard',
+    element: <PrivateRoute><DashBoard/></PrivateRoute>,
+    children: [
+      {
+        path: 'cart',
+        element: <Cart/>
+      }
+    ]
+  }
 ]);
