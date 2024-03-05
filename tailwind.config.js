@@ -5,12 +5,8 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        inter: ['Inter'],
-        cinzel: ['Cinzel']
-      }
-    },
+    extend: {},
   },
-  plugins: [require('daisyui')],
+  plugins: [require("daisyui")],
 }
+

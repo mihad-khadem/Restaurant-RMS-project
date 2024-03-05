@@ -84,7 +84,7 @@
         "name": "Chicken and Walnut Salad",
         "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
-        "category": "popular",
+        "category": "dessert",
         "price": 13.5
     },
     {
@@ -173,7 +173,7 @@
         "recipe": "Chargrilled fresh tuna steak (served medium rare) on classic Niçoise salad with French beans.",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-1-370x247.jpg",
         "category": "drinks",
-        "price": 10.7
+        "price": 14.7
     },
     {
         "_id": "642c155b2c4774f05c36ee80",
@@ -181,7 +181,7 @@
         "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-4-370x247.jpg",
         "category": "offered",
-        "price": 11.00
+        "price": 14.5
     },
     {
         "_id": "642c155b2c4774f05c36ee90",
@@ -197,7 +197,7 @@
         "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
         "category": "soup",
-        "price": 19.5
+        "price": 13.5
     },
     {
         "_id": "642c155b2c4774f05c36ee8d",
@@ -205,7 +205,7 @@
         "recipe": "Pan roasted pork belly with gratin potato, braised Savoy cabbage, apples, thyme and calvados jus",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-3-370x247.jpg",
         "category": "dessert",
-        "price": 9.5
+        "price": 13.5
     },
     {
         "_id": "642c155b2c4774f05c36ee8e",
@@ -213,7 +213,7 @@
         "recipe": "Pan roasted haddock fillet wrapped in smoked French bacon with pea purée and tomato and chive vinaigrette",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2016/08/product-2-370x247.jpg",
         "category": "dessert",
-        "price": 5.5
+        "price": 12.5
     },
     {
         "_id": "642c155b2c4774f05c36eea7",
@@ -229,7 +229,7 @@
         "recipe": "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce",
         "image": "https://cristianonew.ukrdevs.com/wp-content/uploads/2017/01/bbq-370x247.jpg",
         "category": "pizza",
-        "price": 24.5
+        "price": 14.5
     },
     {
         "_id": "642c155b2c4774f05c36eeb3",

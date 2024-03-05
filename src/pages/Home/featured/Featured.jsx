@@ -1,32 +1,25 @@
-import React from "react";
-import SectionTitle from "../../../components/sectionTitle/SectionTitle";
-import featuredImg from "../../../assets/home/featured.jpg";
-import "./featured.css";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import featuredImg from '../../../assets/home/featured.jpg';
+import './Featured.css';
+
+
 const Featured = () => {
-  return (
-    <div className="featured-item text-white ">
-      <div className="bg-slate-950/70 py-1">
-        <SectionTitle heading={"Check it out"} subHeading={"From our menu"} />
-      </div>
-      <div className="md:flex justify-center items-center pt-10 pb-28 px-36 bg-slate-950/70">
-        <div>
-          <img className="rounded-md" src={featuredImg} alt="food" />
+    return (
+        <div className="featured-item bg-fixed text-white pt-8 my-20">
+            <SectionTitle subHeading="check it out" heading="Featured Item" ></SectionTitle>
+            <div className="md:flex justify-center items-center bg-slate-500 bg-opacity-60 pb-20 pt-12 px-36">
+                <div>
+                    <img src={featuredImg} alt="" />
+                </div>
+                <div className="md:ml-10">
+                    <p>Aug 20, 2029</p>
+                    <p className="uppercase">Where can i get some?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate expedita hic dolorem, iusto vel suscipit nam excepturi debitis magnam nostrum! Ut eum dignissimos culpa doloremque eligendi consectetur blanditiis laboriosam fugiat ea quia similique quam nisi reprehenderit numquam magnam nemo vitae cupiditate, atque maiores dicta minus pariatur. Perspiciatis nobis vero quas?</p>
+                    <button className="btn btn-outline border-0 border-b-4 mt-4">Order Now</button>
+                </div>
+            </div>
         </div>
-        <div className="md:ml-10 space-y-3">
-          <p>Aug 20, 2024</p>
-          <p className="uppercase">Where can I get some??</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-            quae fugit omnis voluptatem eaque, laboriosam aperiam. Illo quae
-            autem consequuntur.
-          </p>
-          <button className="btn btn-outline uppercase text-white border-0 border-b-4">
-            read more
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Featured;
